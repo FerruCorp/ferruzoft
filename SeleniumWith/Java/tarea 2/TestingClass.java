@@ -141,6 +141,7 @@ public class TestingClass {
 	    adoptMe();
 	    double expectedPrice = 8.99;
 	    adoptAPuppieWitItemsByPrice(expectedPrice);
+	    completeAdoption();
 	    fillForm();
 	    
 		driver.close();
