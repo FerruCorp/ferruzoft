@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <div id="container"></div><br>
+    <div id="test"></div>  
+    <script src="https://fb.me/react-15.1.0.js"></script>
+    <script src="https://fb.me/react-dom-15.1.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/babel">
+      /*var HelloWorld = React.createClass({
+          render: function(){
+              return <div>Hello World</div>;
+          }          
+      })
+      ReactDOM.render(<HelloWorld/>,document.getElementById('container'));*/
+    var Caja = React.createClass({
+        getDefaultProps : function(){
+            return{
+                color:'red',
+                value:''
+            }
+        },
+        render: function(){
+            //console.log(this.props)
+            var inlineStyle = '1px solid ' + this.props.color
+            return <input type='text' onChange={this.props.onChange} style={{border: inlineStyle}} value={this.props.value}/>       
+        }
+    })  
+    var Form = React.createClass({
+          getInitialState: function(){
+             return {
+              value:'',
+              text: '',
+              error:''
+             }
+          },
+          onChangeInput: function(e){
+              var value = e.target.value
+              //console.log(value)
+              this.setState({
+                  value:value
+              })
+          },
+          onChangeText: function(e){
+             this.setState({
+                 text: e.target.value
+             })
+          }, 
+          onSubmit: function(e){
+              e.preventDefault()
+              //console.log(e)
+              if(this.state.value.length === 0){
+                  this.setState({
+                      error:'Name should be filled out!'
+                  })
+              }else{
+                  $.ajax({
+                    url: "https://formspree.io/jesquerraferruzo@gmail.com", 
+                    method: "POST",
+                    data: {
+                        value: this.state.value,
+                        text:  this.state.text
+                    },
+                    dataType: 'json'
+                  });
+              }
+          }, 
+          render: function(){
+              return (
+              <form onSubmit={this.onSubmit}>
+                    <label>Name</label>
+                    <input type='text' value={this.state.value} onChange={this.onChangeInput}/><br/>
+                    <Caja/><br/>
+                    <label>Message</label>
+                    <textarea rows="4" cols="50" value={this.state.text} onChange={this.onChangeText}/><br/>
+                    <input type='submit' value='submit'/><br/>
+                    
+                    {this.state.error}
+              </form>              
+              )
+          }         
+      })
+      ReactDOM.render(<Form/>,document.getElementById('container'));     
+    </script>
+  </body>
+</html>
