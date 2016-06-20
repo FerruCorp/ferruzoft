@@ -1,0 +1,33 @@
+.content{
+    background-color: #AAA;
+    height: 50px;
+}
+
+.sidebar{
+    background-color: #777;
+    height: 50px;    
+}
+
+h1{
+    font-size: 22px;
+}
+
+@media (min-width: 600px){
+    h1{
+        font-size: 28px;
+    }
+}
+
+@media (min-width: 800px){
+    .sidebar{
+        width: 33%;
+        float: left;
+    }
+    .content{
+        width: 66%;
+        float: left;
+    }
+    h1{
+        font-size: 34px;
+    }
+}
