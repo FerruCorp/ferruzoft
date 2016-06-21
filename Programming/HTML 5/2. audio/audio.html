@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>    
+    <head>    
+        <title>Audio</title>    
+    </head>
+    <body>    
+        <!-- Quitar control y activar los eventListener -->
+        <audio controls>        
+            <source src="kalimba.mp3" type="audio/mpeg"/>
+            <!--<source src=".ogg" type="audio/ogg"/>--> 
+            Your browser does not support the <code>audio</code> element.
+        </audio>    
+        <script>        
+            var audio;
+            //window.addEventListener('load',init,false);
+            //window.addEventListener('click',playPause,false);
+            function playPause(){                
+                if(audio.paused){
+                    audio.play();                    
+                }else{
+                    audio.pause();                    
+                }                
+            }
+            function init(){                
+                audio  = document.getElementsByTagName('audio')[0];
+                audio.play();                
+            }            
+        </script>        
+    </body>
+</html>
