@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="editar descipcion de la pagina"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Tilte</title>
+        <link rel="stylesheet" href=".css"/>
+    </head>
+    <body>
+        <!-- primero instalar emet en tu editor de texto -->
+        <!-- luego como ejemplo tenemos la siguiente linea y al final de la sentencia ubicamos el cursor para luego presionar tab-->      
+        ul>li.nav_bar{item $}*5
+        <!-- y obtenemos este resultado -->
+        <ul>
+            <li class="nav_bar">item 1</li>
+            <li class="nav_bar">item 2</li>
+            <li class="nav_bar">item 3</li>
+            <li class="nav_bar">item 4</li>
+            <li class="nav_bar">item 5</li>
+        </ul>
+        <!-- otro ejemplo: el punto significa que vas asignar una clase al atributo,
+             el simbolo # siginifica que se asignar un id al atributo.
+             El simbolo $ es un numero correlativo que inicia en 1  -->
+        ul.navbar#nav>li.subItem#item$*5>a{item $}
+        <!-- y obtenemos este resultado -->
+        <ul class="navbar" id="nav">
+            <li class="subItem" id="item1"><a href="">item 1</a></li>
+            <li class="subItem" id="item2"><a href="">item 2</a></li>
+            <li class="subItem" id="item3"><a href="">item 3</a></li>
+            <li class="subItem" id="item4"><a href="">item 4</a></li>
+            <li class="subItem" id="item5"><a href="">item 5</a></li>
+        </ul>
+        <!-- otro ejemplo:  -->
+         div[style="border: 1px solid red"]>p>a[href="http://www.google.com"]{google}
+         <!-- y obtenemos este resultado -->
+         <div style="border: 1px solid red">
+             <p><a href="http://www.google.com">google</a></p>
+         </div>
+         <!-- otro ejemplo:  -->
+         div*2+p+a{link $}
+         <!-- y obtenemos este resultado -->
+         <div></div>
+         <div></div>
+         <p></p>
+         <a href="">link 1</a>
+         <p>para mayor información de <b>emet</b> revisar el siguiente <a href="http://docs.emmet.io/abbreviations/syntax/">link</a></p>
+    </body>
+</html>

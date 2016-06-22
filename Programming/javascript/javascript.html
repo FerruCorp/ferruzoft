@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="editar descipcion de la pagina"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Title</title>
+        <link rel="stylesheet" href="css.css"/>
+        <script type="text/javascript" src="firstScript.js"></script>
+     </head>
+    <body>
+        <div style="border: 1px solid red">
+            <p>Este ejemplo mostrará en consola que se ha creado un objeto con una
+               propiedad llamada "propl". El código es el siguiente:<br/>
+               <code>
+                    <tab/>var obj = {};<br/>
+                    <tab/>obj.propl = 3;<br/>
+                    <tab/>console.log(obj);
+                </code>
+            </p>
+            <button onclick="javascript:var obj = {};
+                            obj.propl = 3;
+                            console.log(obj);">
+             click me
+            </button>
+            <button onclick="clean()">clean console</button>
+        </div>
+        <div style="border: 1px solid red">
+            <p>Este ejemplo mostrará en consola que se ha creado una funcion
+                la cual como objeto tiene una propiedad nombrada como "myProp".
+                El código es el siguiente:<br/>
+                <code>
+                    <tab/>function log(arg){<br/>
+                    <tab/>      console.log(arg);<br/>
+                    <tab/>}<br/>
+                    <tab/>log.myProp = 2;<br/>
+                    <tab/>console.log(log);<br/>
+                    <tab/>console.dir(log);
+                </code>
+            </p>
+            <button onclick="javascript:function log(arg){
+                                            console.log(arg);
+                                        }
+                                        log.myProp = 2;
+                                        console.log(log);
+                            console.dir(log);">
+             click me                    
+            </button>
+            <button onclick="clean()">clean console</button>
+        </div>
+        <div style="border: 1px solid red">
+            <p>Este ejemplo mostrará en consola que se ha creado un arreglo de
+                3 elementos y aparte tiene una propiedad "myProp" con un valor de 3.
+                El código es el siguiente:<br/>
+                <code>
+                     <tab/>var ar = [3];<br/>
+                     <tab/>ar.myProp = 3;<br/>
+                     <tab/>console.log(ar);
+                </code>
+            </p>
+            <button onclick="javascript:var ar = [3];
+                                        ar.myProp = 3;
+                                        console.log(ar);">
+             click me                     
+            </button>
+            <button onclick="clean()">clean console</button>
+        </div>
+        <div style="border: 1px solid red">
+            <p>Este ejemplo mostrará en consola que se ha creado un objeto
+                con una propiedad "name" y con valor "Joe". Ademas, se le
+                agregará propiedades por medio de un bucle for.
+                El código es el siguiente: <br/>
+                <code>
+                 <tab/>var obj = {};<br/>
+                 <tab/>obj.name = 'Joe';<br/>
+                 <tab/>console.log(obj.name);<br/>
+                 <tab/>console.log(obj['name']);<br/>
+
+                 <tab/>for(var i=0; i<5; i++){<br/>
+                 <tab/><tab/>obj['prop' + i] = i;<br/>
+                 <tab/>}<br/>
+                 <tab/>console.log(obj);               
+                </code>              
+            </p>
+            <button onclick="javascript:var obj = {};
+                                        obj.name = 'Joe';
+                                        console.log(obj.name);
+                                        console.log(obj['name']);
+
+                                        for(var i=0; i<5; i++){
+                                                obj['prop' + i] = i;
+                                        }
+                                        console.log(obj);">
+             click me                                
+            </button>
+            <button onclick="clean()">clean console</button>
+        </div>
+    </body>
+    <footer>
+        <p>se puede hacer un test javascript online en el siguiente 
+            <a href="http://www.webtoolkitonline.com/javascript-tester.html" target="_blank">link</a>
+        </p>
+    </footer>
+</html>
