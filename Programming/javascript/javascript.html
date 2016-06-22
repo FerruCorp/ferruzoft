@@ -95,6 +95,34 @@
             </button>
             <button onclick="clean()">clean console</button>
         </div>
+        <div style="border: 1px solid red">
+            <p>Este ejemplo mostrará en consola los valores de cada propiedad que tiene un objeto.
+                El código es el siguiente: <br/>
+                <code>
+                 <tab/>var obj = {};<br/>
+                 <tab/>obj.name = 'Joe';<br/>
+                 <tab/>obj.age = '99';<br/>
+                 <tab/>console.log(readProp(obj,'name'));<br/>
+                 <tab/>console.log(readProp(obj,'age'));<br/>
+
+                 <tab/>function readProp(item, prop){<br/>
+                 <tab/><tab/>return item[prop];<br/>
+                 <tab/>}
+                </code>              
+            </p>
+            <button onclick="javascript:var obj = {};
+                                        obj.name = 'Joe';
+                                        obj.age = '99';
+                                        console.log(readProp(obj,'name'));
+                                        console.log(readProp(obj,'age'));
+
+                                        function readProp(item, prop){
+                                           return prop + ': ' + item[prop]; 
+                                        }">
+             click me                                
+            </button>
+            <button onclick="clean()">clean console</button>
+        </div>
     </body>
     <footer>
         <p>se puede hacer un test javascript online en el siguiente 
