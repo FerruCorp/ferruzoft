@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="editar descipcion de la pagina"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Title</title>
+        <link rel="stylesheet" href="css.css"/>
+        <script type="text/javascript" src="firstScript.js"></script>
+     </head>
+    <body onload="clean()">       
+         <div style="border: 1px solid red">
+            <div>
+            <pre>
+                Este ejemplo va a tratar sobre el contexto (context) y la palabra reservada en javascript this.
+            </pre>        
+           </div>    
+           <div>
+            <pre>
+               Comenzamos por entender la palabara clave this. Dicha palabra puede hacer refencia a un objeto para tomarlo como un contexto.
+               
+               Un ejemplo:
+                    var jean = {
+                        primerNombre   : 'Jean',
+                        primerApellido : 'Esquerra',
+                        nombreCompleto : function(){ return this.primerNombre + ' ' + this.segundoNombre; }
+                    }
+                    console.log(jean.nombreCompleto());
+                
+                Esto mostrará en consola lo siguiente: "Jean Esquerra". Ahora si le agregamos un poo mas de código al ejercicio
+                de la siguiente manera:
+                    
+                    var milagros = {
+                        primerNombre   : 'Milagros',
+                        primerApellido : 'Tuesta',
+                    }
+                    
+                    milagros.nombreCompletoReutilizado = jean.nombreCompleto;
+                    console.log(milagros.nombreCompletoReutilizado());
+                
+                Esto mostrará en consola lo siguiente:  Jean Esquerra
+                                                        Milagros Tuesta
+                
+                La explicación a todo esto es que si uno se da cuenta los nombres de las propiedades en común de las variables
+                son: primerNombre y primerApellido. Estas son utlizadas por la funcion nombreCompleto pero se referie a dichas propiedades con la palabra this como prefijo. Dado que dicha función se le asigna a la propiedad <b>"nombreCompletoReutilizado"</b> de la variable <b>"milagros"</b> la palabra clave this toma como contexto 
+                a la variable milagros y utilza las propiedades del mismo nombre como las tiene conformadas en su estructura.
+                
+                Ahora si agregamos lo siguiente:
+                
+                    var nombreCompleto = jean.nombreCompleto;
+                    console.log(nombrecompleto());
+                
+                ¿Qué sucederá?    
+            </pre>
+            <tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/>   
+            <button onclick="javascript:
+                                var jean = {
+                                    primerNombre   : 'Jean',
+                                    primerApellido : 'Esquerra',
+                                    nombreCompleto : function(){ return this.primerNombre + ' ' + this.segundoNombre; }
+                                }
+                                var milagros = {
+                                    primerNombre   : 'Milagros',
+                                    primerApellido : 'Tuesta',
+                                }                    
+                                milagros.nombreCompletoReutilizado = jean.nombreCompleto;
+                                console.log(milagros.nombreCompletoReutilizado());
+                             
+                                var nombreCompleto = jean.nombreCompleto;
+                                console.log(nombreCompleto());
+                                document.getElementById('sol').style.display = 'block';">
+             Click me
+            </button>               
+            <button onclick="clean()">Clean</button>
+            <pre id='sol' style="display: none;" onclick="hide(this)">
+                Esto nos demuestra que el this está buscando en todo el contexto de javascript las propiedades primerNombre y
+                primerApellido; dado a que nos las encuentra nos muestra en la consola:
+                <p>
+                                                                Jean Esquerra
+                                                                Milagros Tuesta
+                                                                undefined undefined
+                </p>
+            </pre>               
+           </div>
+        </div>        
+    </body>
+    <footer>
+        <p>se puede hacer un test javascript online en el siguiente 
+            <a href="http://www.webtoolkitonline.com/javascript-tester.html" target="_blank">link</a>
+        </p>
+    </footer>
+</html>

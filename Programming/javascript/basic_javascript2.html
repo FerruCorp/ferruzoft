@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="editar descipcion de la pagina"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Title</title>
+        <link rel="stylesheet" href="css.css"/>
+        <script type="text/javascript" src="firstScript.js"></script>
+     </head>
+    <body onload="clean()">       
+          <div style="border: 1px solid red">
+            <div>
+            <pre>
+                Este ejemplo va a tratar sobre la diferencia entre scope y clousure
+                en javascript.
+            </pre>        
+           </div>    
+           <div>
+            <pre>
+                 Vamos a comenzar por Scope el cual se divide en 2 partes: Global  y Local.
+                 El Scope global trata de una variable que se puede acceder tanto fuera como dentro
+                 de una función. Un código de ejemplo es el siguiente:
+                    var a = 1;
+                    function global() {
+                        console.log('Accedo desde la función global: ' +a);
+                    }
+                    global();
+                    console.log('Accedo desde cualquier otra parte: ' + a);
+            </pre>
+            <tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/>
+            <button onclick="javascript:
+                             var a = 1;
+                             function global() {
+                                    console.log('Accedo desde la función global: ' + a);
+                             }
+                             global();
+                            console.log('Accedo desde cualquier otra parte: ' + a);">
+                Click me
+            </button>
+            <button onclick="clean()">Clean</button> 
+           </div>
+           <div>
+            <pre>
+                Ahora veremos el ejemplo de un Scope Local. Éste solo puede ser accedido desde detro de una misma función y/o
+                bloque de código. Por ejemplo:
+                    function local() {
+                        var a = 2;
+                        console.log('Accedo desde la función local:' + a);
+                    }
+                    local();
+                    console.log('Intento acceder a la variable declarada dentro de la función local pero nos dice que la variable \"b"\ es: ' + Uncaught ReferenceError: b is not defined ); 
+            </pre>
+            <pre id="res" style="display: none;">
+                Esto es debido que la variable b se encuentra declarada dentro de la función local y no se puede acceder a ella
+                fuera de la función.   
+            </pre> 
+            <tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/>
+            <tab/><tab/><tab/><tab/><tab/><tab/><tab/>
+            <button onclick="javascript:
+                             function local(id) {
+                                var b = 2;
+                                console.log('Accedo a la variable \'b\' desde la función local: ' + b);
+                                document.getElementById(id).style.display = 'block';
+                             }
+                             local('res');
+                             console.log('Intento acceder a la variable declarada dentro de la función local pero nos dice que la variable \'b\' es: ' + b);                        ">
+                Click me
+            </button>
+            <button onclick="clean()">Clean</button>
+           </div>
+        </div>
+        <div style="border: 1px solid red">
+            <pre>
+                Un closure es una función que es libre de variables, esto quiere decir que las variables de la función padre funcionan, pero el closure no tiene variables propias. Ejemplo:
+                    
+                    function padre() {
+                        var a = 1;
+                        funcion closure() {
+                            console.log(a);
+                        }
+                        closure();
+                    }
+                    padre();
+                    
+                La función interna es un clousure y solo esta diponible en la función padre.    
+            </pre>
+            <pre> 
+                Ahora un ejemplo un poco mas "complejo"
+                    function Suma(a) {
+                        return funcion(b) {
+                                return a + b
+                        }
+                    }
+                    var sumar5 = Suma(5);
+                    var sumar10 = Suma(10);
+                    console.log(sumar5(15));
+                    console.log(sumar10(15));
+            </pre>
+            <tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/>
+            <button onclick="javascript:
+                            function Suma(a) {
+                                return function(b) {
+                                        return a + b
+                                }
+                            }
+                            var sumar5 = Suma(5);
+                            var sumar10 = Suma(10);
+                            console.log(sumar5(15));
+                            console.log(sumar10(15));">
+                Click me
+            </button>
+            <button onclick="clean()">Clean</button>
+        </div>
+    </body>
+    <footer>
+        <p>se puede hacer un test javascript online en el siguiente 
+            <a href="http://www.webtoolkitonline.com/javascript-tester.html" target="_blank">link</a>
+        </p>
+    </footer>
+</html>

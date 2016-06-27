@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="editar descipcion de la pagina"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Title</title>
+        <link rel="stylesheet" href="css.css"/>
+        <script type="text/javascript" src="firstScript.js"></script>
+     </head>
+    <body onload="clean()">       
+         <div style="border: 1px solid red">
+            <div>
+            <pre>
+                Este ejemplo va a tratar sobre el hoisting.
+            </pre>        
+           </div>    
+           <div>
+            <pre>
+                Comenzamos por un ejemplo:
+                    console.log(a);
+                Si mandamos eso en consola nos mostrará Uncaught ReferenceError: a is not defined
+                pero si hacemos lo siguiente:
+                    console.log(a);
+                    var a;
+            </pre>
+            <tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/>   
+            <button onclick="javascript:
+                                console.log(a);
+                                var a;
+                                document.getElementById('sol').style.display = 'block';">
+                                Click me
+            </button>               
+            <button onclick="clean()">Clean</button>
+            <pre id='sol' style="display: none;" onclick="hide(this)">
+                Esto va a mostrar que la variable se encuentra indefinida o en inglés undefined, y no sé mostrará
+                el mensaje: "Uncaught ReferenceError:...". Esto es debido a que javascript detecta la variable o función
+                declarada sin importar el orden en el código pero aun así la toma como undefined dado que no tiene una 
+                valor u objeto asignado.                
+                
+                Aun asi hagamos lo siguiente:
+                    console.log(a);
+                    var a = 3;
+                De todas formas indicará que la variable "a" se encuentra undefined.    
+            </pre>               
+           </div>
+        </div>
+        <div style="border: 1px solid red">
+            <div>
+            <pre>
+                Ahora vamos a probar con funciones para conocer su manejo.
+            </pre>        
+           </div>    
+           <div>
+            <pre>
+                Comenzamos por un ejemplo:
+                    console.log(funcionUno);
+                    console.log(funcionDos);
+                    function funcionUno(){
+                        //mi código
+                    }                    
+                    var funcionDos = function(){
+                        //mi código
+                    }
+                Si mandamos eso en consola nos mostrará:
+                    function funcionUno(){
+                        //mi código
+                    }    
+                    undefined
+                Ahora si hacemos lo siguiente:
+                    var fac = factorial(5);
+                    
+                    var factorial = function(param){
+                        console.log('factorial!');
+                    }
+            </pre>
+            <tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/><tab/>   
+            <button onclick="javascript:
+                                var fac = factorial(5);
+                                var factorial = function(param){
+                                    console.log('factorial!');
+                                }
+                                document.getElementById('sol').style.display = 'block';">
+                                Click me
+            </button>               
+            <button onclick="clean()">Clean</button>
+            <pre id='sol' style="display: none;" onclick="hide(this)">
+                Esto va a mostrar un error tipo: Uncaught TypeError in dicando que la propiedad factorial
+                no es una función.
+            </pre>               
+           </div>
+        </div>    
+    </body>
+    <footer>
+        <p>se puede hacer un test javascript online en el siguiente 
+            <a href="http://www.webtoolkitonline.com/javascript-tester.html" target="_blank">link</a>
+        </p>
+    </footer>
+</html>
